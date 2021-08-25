@@ -13,20 +13,20 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage
 .grunt
 
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
+# Compiled binary addons
 build/Release
 .eslintcache
 
 # Dependency directory
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
+# release files
 release
 
 # OSX
@@ -34,8 +34,8 @@ release
 
 # App packaged
 release
-src/main.prod.js
-src/main.prod.js.map
+src/scripts/out/main.prod.js
+src/scripts/out/main.prod.js.map
 src/renderer.prod.js
 src/renderer.prod.js.map
 src/style.css
