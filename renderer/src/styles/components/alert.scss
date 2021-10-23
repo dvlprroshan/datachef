@@ -1,0 +1,49 @@
+div[class*="#{$app-prefix}-alert"] {
+  b,
+  a {
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .close {
+    position: absolute;
+    right: 15px;
+    line-height: 1rem;
+    top: 0.8rem;
+    cursor: pointer;
+  }
+  @keyframes glowUp {
+    0% {
+      transform: scale(0.2);
+    }
+    30% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  padding: 12px;
+  margin: 5px;
+  animation: glowUp 1s linear 1;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  position: relative;
+  font-size: 0.8rem;
+  transition: 0.5s linear;
+  line-height: 1rem;
+}
+
+@each $name, $value in $color-plates {
+  .#{$app-prefix}-alert-#{$name} {
+    color: get-color($name, 400);
+    background-color: get-color($name, 100);
+    a {
+      color: get-color($name, 400);
+    }
+  }
+}

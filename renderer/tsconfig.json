@@ -1,0 +1,23 @@
+{
+  "extends": "../tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "baseUrl": "",
+    "paths": {
+    "@screens/*": [
+      "src/screens/*"
+    ],
+      "@styles/*":["src/styles/*"],
+      "@components/*":["src/components/*"],
+      "@images/*":["src/images/*"],
+      "@utils/*":["src/utils/*"]
+    },
+      }
+}

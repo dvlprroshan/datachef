@@ -1,0 +1,179 @@
+$borderRadiusLarge: 15px;
+$borderRadiusMedium: 10px;
+.startup-menu {
+  @include box(100vw, 100vh);
+  @include centerWithflex;
+  overflow-x: hidden;
+  row-gap: 20px;
+  .menu-options {
+    @include box(650px, auto);
+    background-color: get-color(secondary, 100);
+    @include centerWithflex(row);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px;
+    border-radius: $borderRadiusLarge;
+    .active-tool {
+      background-color: get-color(primary, 400);
+      &::before {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      .title {
+        color: white;
+      }
+    }
+  }
+  .menu-option-item {
+    @include box(180px);
+    @include centerWithflex;
+    background-color: get-color(primary, 200);
+    border-radius: $borderRadiusLarge;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid white;
+    &::before {
+      position: absolute;
+      content: "";
+      @include box(400px);
+      background-color: white;
+      opacity: 0.8;
+      z-index: 3;
+      transform: translateY(280px);
+      transition: 1s ease-in;
+      border-radius: 200px;
+    }
+    &:hover::before {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+    .icon,
+    .title {
+      z-index: 4;
+    }
+    .title {
+      color: get-color(primary, 400);
+      font-weight: bold;
+      font-size: 1.7rem;
+    }
+  }
+  .next-title {
+    width: 80%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: get-color(secondary, 500);
+  }
+  .recent-projects {
+    width: 80%;
+    display: flex;
+    column-gap: 20px;
+  }
+  .recent-item-card {
+    $boxSize: 20px;
+    @include box($boxSize * 5, $boxSize * 6);
+    background-color: get-color(secondary, 100);
+    border-radius: $borderRadiusMedium;
+    transition: 0.2s linear;
+    cursor: pointer;
+    position: relative;
+    &:hover {
+      background-color: get-color(secondary, 200);
+      .icon {
+        color: get-color(secondary, 100);
+      }
+      .options {
+        display: unset;
+      }
+    }
+    .icon {
+      @include centerWithAbsolute;
+      @include box($boxSize * 3, $boxSize * 3+10px);
+      margin-top: $boxSize;
+      color: get-color(secondary, 300);
+    }
+    .fileName {
+      @include centerWithAbsolute;
+      bottom: 0;
+      margin: 10px;
+      height: 20px;
+      margin-bottom: 5px;
+      overflow: hidden;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: get-color(secondary, 500);
+    }
+    .options {
+      position: absolute;
+      margin: auto;
+      right: 10px;
+      top: 10px;
+      color: get-color(secondary, 500);
+      display: none;
+    }
+    .optionsMenu {
+      width: max-content;
+      background-color: get-color(primary, 100);
+      position: absolute;
+      transform: translateX($boxSize * 5-10px);
+      margin-top: 20px;
+      z-index: 3;
+      list-style: none;
+      padding: 10px;
+      border: 2px solid white;
+      border-radius: 10px;
+      color: rgb(2, 3, 44);
+      li {
+        &:hover {
+          color: white;
+          background-color: get-color(primary, 400);
+        }
+      }
+      li {
+        font-size: 1.2rem;
+        padding: 0 10px;
+        border-radius: 4px;
+      }
+    }
+  }
+  .details-panel {
+    position: fixed;
+    @include box(100vw, 100vh);
+    background-color: #00000051;
+    display: grid;
+    place-items: center;
+    z-index: 10;
+    .box-wrapper {
+      width: 350px;
+      // height: 400px;
+      background-color: white;
+      border-radius: $borderRadiusLarge;
+      box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.5);
+      position: relative;
+      padding: 40px 20px;
+      @include centerWithflex;
+      td:first-child {
+        padding-right: 30px;
+        color: get-color(primary, 400);
+      }
+      td {
+        color: get-color(secondary, 400);
+      }
+      tr {
+        margin-bottom: 10px;
+        // text-align: left;
+      }
+    }
+    .closeIcon {
+      @include box(30px);
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      color: get-color(secondary, 200);
+      cursor: pointer;
+      &:hover {
+        color: get-color(danger, 400);
+      }
+    }
+  }
+}

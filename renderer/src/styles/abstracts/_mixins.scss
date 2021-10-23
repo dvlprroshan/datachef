@@ -1,0 +1,107 @@
+// screen
+@mixin screen($size, $type: max, $pixels: $breakpoint-small) {
+  @if $size == "small" {
+    @media screen and (#{$type}-width: $breakpoint-small) {
+      @content;
+    }
+  } @else if $size == "med-small" {
+    @media screen and (#{$type}-width: $breakpoint-med-small) {
+      @content;
+    }
+  } @else if $size == "med" {
+    @media screen and (#{$type}-width: $breakpoint-med) {
+      @content;
+    }
+  } @else if $size == "large" {
+    @media screen and (#{$type}-width: $breakpoint-large) {
+      @content;
+    }
+  } @else if $size == "custom" {
+    @media screen and (#{$type}-width: $pixels + px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// center any element
+@mixin center($position) {
+  position: absolute;
+
+  @if $position == "vertical" {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } @else if $position == "horizontal" {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  } @else if $position == "both" {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+// css triangle
+
+@mixin css-triangle(
+  $color,
+  $direction,
+  $size: 6px,
+  $position: absolute,
+  $round: false
+) {
+  @include pseudo($pos: $position);
+  width: 0;
+  height: 0;
+  @if $round {
+    border-radius: 3px;
+  }
+  @if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+    margin-top: 0 - round($size / 2.5);
+  } @else if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    margin-bottom: 0 - round($size / 2.5);
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+    margin-right: -$size;
+  } @else if $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+    margin-left: -$size;
+  }
+}
+
+// box --> height and weight
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin centerWithflex($dir: column) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $dir;
+}
+
+@mixin centerWithAbsolute {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+}

@@ -1,0 +1,25 @@
+// core
+@import "./core/reset";
+@import "./core/typography";
+
+// abstracts
+@import "./abstracts/colors";
+@import "./abstracts/variables";
+@import "./abstracts/functions";
+@import "./abstracts/mixins";
+
+// layouts
+
+// vendor
+
+// themes
+
+// utils
+@import "./utils/zindex";
+@import "./utils/layout";
+
+// components
+@import "./components/alert.scss";
+
+// screens
+@import "./screens/startupMenu.scss";

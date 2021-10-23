@@ -3,23 +3,19 @@
   "tasks": [
     {
       "type": "npm",
-      "label": "Start Webpack Dev",
-      "script": "start:renderer",
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
+      "script": "dev",
       "isBackground": true,
       "problemMatcher": {
         "owner": "custom",
         "pattern": {
-          "regexp": "____________"
+          "regexp": ""
         },
         "background": {
-          "activeOnStart": true,
-          "beginsPattern": "Compiling\\.\\.\\.$",
-          "endsPattern": "(Compiled successfully|Failed to compile)\\.$"
+          "beginsPattern": "started server",
+          "endsPattern": "Debugger listening on"
         }
-      }
+      },
+      "label": "dev"
     }
   ]
 }

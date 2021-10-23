@@ -1,0 +1,13 @@
+@use 'sass:math';
+
+// color helpers
+@function get-color($colorName, $weight) {
+  @if not map-get($color-plates, $colorName) {
+    @error "#'{$colorName}' color not found!";
+  }
+  @if math.div($weight, 100) > 5 {
+    @error "'#{weight}' is not valid, you may enter 100 | 200 | 300 | 400 | 500.";
+  } @else {
+    @return nth(map-get($color-plates, $colorName), math.div($weight, 100));
+  }
+}
